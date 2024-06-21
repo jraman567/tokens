@@ -6,6 +6,7 @@ package tokens
 import (
 	"encoding/json"
 	"strings"
+	"crypto/sha512"
 )
 
 /**
@@ -156,4 +157,9 @@ func (t *OciSnpToken) GetVcek() string {
 
 func (t *OciSnpToken) GetRefId() string {
 	return t.ReferenceId
+}
+
+func (t *OciSnpToken) GetInstanceDigest() [sha512.Size]byte {
+	instanceInfo, _:= json.Marshal(t.Evidence.InstanceInfo)
+	return sha512.Sum512(instanceInfo)
 }

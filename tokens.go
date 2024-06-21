@@ -5,6 +5,7 @@ package tokens
 
 import (
 	"encoding/json"
+	"crypto/sha512"
 	"fmt"
 )
 
@@ -18,6 +19,7 @@ type Token interface {
 	GetAsk() string
 	GetVcek() string
 	GetRefId() string
+	GetInstanceDigest() [sha512.Size]byte
 }
 
 var supportedTokens = map[string]func([]byte) (Token, error){
