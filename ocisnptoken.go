@@ -159,7 +159,7 @@ func (t *OciSnpToken) GetRefId() string {
 	return t.ReferenceId
 }
 
-func (t *OciSnpToken) GetInstanceDigest() [sha512.Size]byte {
+func (t *OciSnpToken) GetInstanceDigest() ([sha512.Size]byte, []byte) {
 	instanceInfo, _:= json.Marshal(t.Evidence.InstanceInfo)
-	return sha512.Sum512(instanceInfo)
+	return sha512.Sum512(instanceInfo), instanceInfo
 }

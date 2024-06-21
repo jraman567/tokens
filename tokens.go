@@ -19,7 +19,7 @@ type Token interface {
 	GetAsk() string
 	GetVcek() string
 	GetRefId() string
-	GetInstanceDigest() [sha512.Size]byte
+	GetInstanceDigest() ([sha512.Size]byte, []byte)
 }
 
 var supportedTokens = map[string]func([]byte) (Token, error){
