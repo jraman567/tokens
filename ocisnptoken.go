@@ -28,6 +28,7 @@ type OciSnpEvidence struct {
 	EvidenceTimestamp	string			`cbor:"89975,keyasint" json:"snp-evidence-timestamp"`
 	SwInfo			OciSnpSwInfo		`cbor:"89974,keyasint" json:"snp-sw-info"`
 	InstanceInfo		OciInstanceInfo		`cbor:"89972,keyasint" json:"snp-instance-info"`
+	AttesterPubKey		string			`cbor:"89971,keyasint,omitempty" json:"snp-attester-pub-key,omitempty"`
 }
 
 type OciSnpKeys struct {
